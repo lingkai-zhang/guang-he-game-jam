@@ -1,0 +1,176 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/wheel.gd" id="1_wheel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot"]
+bg_color = Color(0.12, 0.16, 0.22, 0.92)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+content_margin_left = 6.0
+content_margin_right = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hub"]
+bg_color = Color(0.93, 0.72, 0.35, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot_active"]
+bg_color = Color(0.93, 0.72, 0.35, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.98, 0.9, 0.7, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+content_margin_left = 6.0
+content_margin_right = 6.0
+
+[node name="Wheel" type="Control"]
+custom_minimum_size = Vector2(260, 310)
+offset_right = 260.0
+offset_bottom = 310.0
+script = ExtResource("1_wheel")
+style_normal = SubResource("StyleBoxFlat_slot")
+style_active = SubResource("StyleBoxFlat_slot_active")
+
+[node name="Rotor" type="Node2D" parent="."]
+position = Vector2(130, 140)
+
+[node name="Slot0" type="PanelContainer" parent="Rotor"]
+offset_left = -52.0
+offset_top = -106.0
+offset_right = 52.0
+offset_bottom = -70.0
+pivot_offset = Vector2(52, 18)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="WordLabel" type="Label" parent="Rotor/Slot0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.92, 0.86, 1)
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot1" type="PanelContainer" parent="Rotor"]
+offset_left = 24.0
+offset_top = -62.0
+offset_right = 128.0
+offset_bottom = -26.0
+pivot_offset = Vector2(52, 18)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="WordLabel" type="Label" parent="Rotor/Slot1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.92, 0.86, 1)
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="PanelContainer" parent="Rotor"]
+offset_left = 24.0
+offset_top = 26.0
+offset_right = 128.0
+offset_bottom = 62.0
+pivot_offset = Vector2(52, 18)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="WordLabel" type="Label" parent="Rotor/Slot2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.92, 0.86, 1)
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="PanelContainer" parent="Rotor"]
+offset_left = -52.0
+offset_top = 70.0
+offset_right = 52.0
+offset_bottom = 106.0
+pivot_offset = Vector2(52, 18)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="WordLabel" type="Label" parent="Rotor/Slot3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.92, 0.86, 1)
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot4" type="PanelContainer" parent="Rotor"]
+offset_left = -128.0
+offset_top = 26.0
+offset_right = -24.0
+offset_bottom = 62.0
+pivot_offset = Vector2(52, 18)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="WordLabel" type="Label" parent="Rotor/Slot4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.92, 0.86, 1)
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot5" type="PanelContainer" parent="Rotor"]
+offset_left = -128.0
+offset_top = -62.0
+offset_right = -24.0
+offset_bottom = -26.0
+pivot_offset = Vector2(52, 18)
+theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
+
+[node name="WordLabel" type="Label" parent="Rotor/Slot5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.92, 0.86, 1)
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hub" type="PanelContainer" parent="."]
+offset_left = 85.0
+offset_top = 95.0
+offset_right = 175.0
+offset_bottom = 185.0
+pivot_offset = Vector2(45, 45)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hub")
+
+[node name="TitleLabel" type="Label" parent="Hub"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16, 0.12, 0.07, 1)
+theme_override_font_sizes/font_size = 21
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pointer" type="Polygon2D" parent="."]
+color = Color(0.93, 0.72, 0.35, 1)
+polygon = PackedVector2Array(130, 24, 121, 6, 139, 6)
+
+[node name="LeftBtn" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 272.0
+offset_right = 64.0
+offset_bottom = 306.0
+text = "◀"
+
+[node name="RightBtn" type="Button" parent="."]
+offset_left = 196.0
+offset_top = 272.0
+offset_right = 252.0
+offset_bottom = 306.0
+text = "▶"
+
+[node name="CostLabel" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 276.0
+offset_right = 196.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.75, 0.8)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
